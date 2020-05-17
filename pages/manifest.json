@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "author": "chunLei",
+  "homepage_url": "https://github.com/timqian/star-history-plugin",
+  "name": "Collect Extension",
+  "description": "插件收藏",
+  "version": "1.0",
+  "icons": {
+    "128": "assets/ico.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.dcloud.net.cn/*"],
+      "js": ["script/tcb.js","script/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "web_accessible_resources": [
+    "assets/*","script/inject.js"
+  ],
+  "browser_action": {
+    "default_icon": "./assets/ico.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "cookies",
+    "*://*.dcloud.net.cn/*",
+    "<all_urls>"
+  ]
+}
